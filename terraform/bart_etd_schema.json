@@ -1,0 +1,10 @@
+[
+    {"name": "station", "type": "STRING", "mode": "NULLABLE"},
+    {"name": "destination", "type": "STRING", "mode": "NULLABLE"},
+    {"name": "platform", "type": "STRING", "mode": "NULLABLE"},
+    {"name": "direction", "type": "STRING", "mode": "NULLABLE"},
+    {"name": "minutes", "type": "INTEGER", "mode": "NULLABLE"},
+    {"name": "length", "type": "INTEGER", "mode": "NULLABLE"},
+    {"name": "color", "type": "STRING", "mode": "NULLABLE"}
+  ]
+  

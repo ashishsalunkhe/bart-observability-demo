@@ -1,0 +1,20 @@
+groups:
+  - name: bart-etd-alerts
+    rules:
+      - alert: NoNewPubSubMessages
+        expr: rate(pubsub_ingested_messages_total[1m]) == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "No BART messages received in the last 2 minutes"
+          description: "Data ingestion may be down. Investigate Cloud Function or Pub/Sub."
+
+      - alert: HighDataflowLatency
+        expr: histogram_quantile(0.95, rate(dataflow_step_latency_bucket[5m])) > 3
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Dataflow step p95 latency exceeds 3 seconds"
+          description: "Streaming pipeline might be backlogged or encountering slow processing."
